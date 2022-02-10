@@ -62,17 +62,18 @@ const search = ({ results }) => {
         <Secondary_header />
       </header>
       <Results results={results} />
-    </div>
+  </div>
   );
 };
 
 export default search;
 export async function getServerSideProps(context) {
-  const TestData = true;
-  const page = context.query.page
+  const TestData = false;
+  const page = context.query.page ? context.query.page  : 0 ;
+
   const data = TestData ? Response :  await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${context.query.query}&start=${page}`
-  ).then(response => response.json());
+  ).then(response => response.json());    
   return {
     props: {
       results: data,

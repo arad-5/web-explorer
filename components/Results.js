@@ -1,5 +1,6 @@
 import Paginator from "../components/Paginator"
 const Results = ({ results }) => {
+  console.log(results);
   return (
     <div className="mx-auto xl:mx-[20rem] lg:mx-[10rem] md:mx-[5rem] ">
       <p className=" text-gray-500 text-center sm:text-left">
